@@ -10,7 +10,7 @@ function SkinAvatar ({uuid}) {
             <img 
                 src={
                     showOverlay ? 'https://crafatar.com/avatars/' + uuid + '?default=MHF_Steve&overlay' :
-                                  'https://crafatar.com/avatars/' + uuid
+                                  'https://crafatar.com/avatars/' + uuid + '?default=MHF_Steve'
                 }
                 alt='Skin Avatar'
                 className="SkinSectionImg AvatarSectionImg"
