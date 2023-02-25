@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function SkinAvatar ({uuid}) {
 
-    const [showOverlay, setShowOverlay] = useState(false);
+    const [showOverlay, setShowOverlay] = useState(true);
 
     return (
         <div className="SkinSection AvatarSection">
