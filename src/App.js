@@ -9,10 +9,22 @@ import SkinPlain from './components/SkinPlain';
 function App() {
   const [idToSearch, updateIdToSearch] = useState('');
   const [uuid, setUuid] = useState();
+  const [isValidUrl, setValidUrl] = useState();
+
+  const testValidUUID = async (uuid) => {
+    const RESPONSE = await fetch('https://crafatar.com/avatars/' + uuid);
+    return RESPONSE.status === 200 ? true : false;
+  }
 
   const handleSearch = async (e) => {
     e.preventDefault();
     setUuid(idToSearch);
+    const isUUIDValid = await testValidUUID(idToSearch);
+    if(!isUUIDValid){
+      setValidUrl(false);
+      return;
+    }
+    setValidUrl(true);
     updateIdToSearch('');
   }
 
@@ -33,11 +45,20 @@ function App() {
         <button className='searchBtn'>0</button>
       </form>
       {uuid ? <h2>Results for <strong>{uuid}</strong></h2> : ''}
-      <SkinAvatar uuid={uuid}/>
-      <SkinHead uuid={uuid}/>
-      <SkinBody uuid={uuid}/>
-      <SkinPlain uuid={uuid}/>
-      <SkinCape uuid={uuid}/>
+      {
+        uuid ?  
+          isValidUrl ? 
+            <div className='skinInfoDiv'>
+              <SkinAvatar uuid={uuid}/>
+              <SkinHead uuid={uuid}/>
+              <SkinBody uuid={uuid}/>
+              <SkinPlain uuid={uuid}/>
+              <SkinCape uuid={uuid}/>
+            </div> :
+            <p className='errorMessage'>Invalid UUID</p> :
+        ''
+      }
+      
     </div>
   );
 }
