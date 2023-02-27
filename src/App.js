@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <div className='appInfo'>
         <h1>Minecraft Skin by UUID</h1>
-        <p>Search a minecraft user by his UUID (found it <a href='https://minecraftuuid.com/'>here</a>)</p>
+        <p>Search a minecraft user by his UUID (found it <a href='https://minecraftuuid.com/' target='_blank'>here</a>)</p>
       </div>
       <form onSubmit={handleSearch}>
         <input 
