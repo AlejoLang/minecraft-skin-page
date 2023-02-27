@@ -7,7 +7,7 @@ function SkinPlain ({ uuid }) {
             <img 
                 src={'https://crafatar.com/skins/' + uuid + '?default=MHF_Steve'}
                 alt='Skin Avatar'
-                className="SkinSectionImg AvatarSectionImg"
+                className="SkinSectionImg PlainSectionImg"
             />
         </div>
     )
